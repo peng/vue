@@ -21,6 +21,7 @@ export function initMixin (Vue: Class<Component>) {
     let startTag, endTag
     /* istanbul ignore if */
     if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
+      // 用于开发模式的性能监测, 主要用window.performance 来检测性能
       startTag = `vue-perf-start:${vm._uid}`
       endTag = `vue-perf-end:${vm._uid}`
       mark(startTag)
@@ -30,9 +31,10 @@ export function initMixin (Vue: Class<Component>) {
     vm._isVue = true
     // merge options
     if (options && options._isComponent) {
-      // optimize internal component instantiation
-      // since dynamic options merging is pretty slow, and none of the
+      // optimize internal component instantiation  优化内部组件实例化
+      // since dynamic options merging is pretty slow, and none of the  因为动态选项合并非常慢，而且没有
       // internal component options needs special treatment.
+      // 内部组件选项需要特殊处理
       initInternalComponent(vm, options)
     } else {
       vm.$options = mergeOptions(

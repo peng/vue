@@ -301,6 +301,7 @@ function normalizeProps (options: Object, vm: ?Component) {
   const res = {}
   let i, val, name
   if (Array.isArray(props)) {
+    // props 属性的判断 是数组
     i = props.length
     while (i--) {
       val = props[i]
@@ -312,6 +313,7 @@ function normalizeProps (options: Object, vm: ?Component) {
       }
     }
   } else if (isPlainObject(props)) {
+    // 是对象
     for (const key in props) {
       val = props[key]
       name = camelize(key)

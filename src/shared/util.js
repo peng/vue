@@ -69,6 +69,7 @@ export function isRegExp (v: any): boolean {
 export function isValidArrayIndex (val: any): boolean {
   const n = parseFloat(String(val))
   return n >= 0 && Math.floor(n) === n && isFinite(val)
+  // parseFloat js函数学习, isFinite js函数学习
 }
 
 export function isPromise (val: any): boolean {

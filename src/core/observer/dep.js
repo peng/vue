@@ -9,6 +9,7 @@ let uid = 0
 /**
  * A dep is an observable that can have multiple
  * directives subscribing to it.
+ * dep是一个可观察的，可以有多个指令订阅它。
  */
 export default class Dep {
   static target: ?Watcher;
@@ -35,11 +36,11 @@ export default class Dep {
   }
 
   notify () {
-    // stabilize the subscriber list first
+    // stabilize the subscriber list first 首先稳定订户列表
     const subs = this.subs.slice()
     if (process.env.NODE_ENV !== 'production' && !config.async) {
-      // subs aren't sorted in scheduler if not running async
-      // we need to sort them now to make sure they fire in correct
+      // subs aren't sorted in scheduler if not running async  如果没有运行异步，则不在调度程序中对subs进行排序
+      // we need to sort them now to make sure they fire in correct  
       // order
       subs.sort((a, b) => a.id - b.id)
     }

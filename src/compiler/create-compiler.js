@@ -5,7 +5,9 @@ import { detectErrors } from './error-detector'
 import { createCompileToFunctionFn } from './to-function'
 
 export function createCompilerCreator (baseCompile: Function): Function {
+  // 传入参数为 compiler/index.js 中 createComiplerCreator 函数传入的参数 
   return function createCompiler (baseOptions: CompilerOptions) {
+    // 传入参数为 platforms/web/compiler/index.js createCompiler 函数传入的 baseOptions
     function compile (
       template: string,
       options?: CompilerOptions

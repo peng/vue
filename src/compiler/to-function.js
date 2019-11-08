@@ -19,6 +19,7 @@ function createFunction (code, errors) {
 }
 
 export function createCompileToFunctionFn (compile: Function): Function {
+  // 传入参数为 compiler/create-compiler.js 中的 compile 函数
   const cache = Object.create(null)
 
   return function compileToFunctions (
@@ -26,6 +27,7 @@ export function createCompileToFunctionFn (compile: Function): Function {
     options?: CompilerOptions,
     vm?: Component
   ): CompiledFunctionResult {
+    // 传入参数为 entry-runtime-with-compiler 中 compileToFunction 传入的参数
     options = extend({}, options)
     const warn = options.warn || baseWarn
     delete options.warn

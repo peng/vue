@@ -130,7 +130,8 @@ export function observe (value: any, asRootData: ?boolean): Observer | void {
 }
 
 /**
- * Define a reactive property on an Object.
+ * Define a reactive property on an Object. 在Object上定义反应属性。
+ * 核心属性检测应该在这里
  */
 export function defineReactive (
   obj: Object,
@@ -140,7 +141,7 @@ export function defineReactive (
   shallow?: boolean
 ) {
   const dep = new Dep()
-
+ 
   const property = Object.getOwnPropertyDescriptor(obj, key)
   if (property && property.configurable === false) {
     return
